@@ -1,0 +1,39 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>readme.md</title>
+      </head>
+      <body>
+        <h1 id="acf-oauth-instagram-service">ACF OAuth Instagram Service</h1>
+<p>This Service allows you to generate an Access Token for the Instagram API through an ACF Field</p>
+<hr>
+<h3 id="requirements">Requirements</h3>
+<p>This Service requires  <strong>Client Id</strong> and <strong>Client Secret</strong> to work.</p>
+<h3 id="example-usage">Example Usage</h3>
+<p>The following code shows how to use saved field data to make an Instagram API Call. In this Case <code>instagram_login</code> is a registered field, post authors can use to display their latest Instagrams under their post.</p>
+<pre><code class="lang-php">
+add_action( &#39;the_content&#39;, function() {
+
+  $instagram_api_credentials = get_field( &#39;instagram_login&#39; );
+
+  $request_url = &#39;https://api.instagram.com/v1/users/self/media/recent/&#39;;
+
+  $request_url = add_query_arg(
+    &#39;access_token&#39;,
+    urlencode( $instagram_api_credentials[&#39;access_token&#39;] ),
+    $request_url
+  );
+
+  $response = wp_remote_get( $request_url );
+
+  $media = json_decode( wp_remote_retrieve_body( $response ) );
+
+  foreach( $media -&gt; data as $entry )
+    printf( &#39;&lt;img src=&quot;%s&quot;/&gt;&#39;, $entry-&gt;images-&gt;thumbnail-&gt;url );
+
+});
+</code></pre>
+<p>Be aware that this code is <strong>not suitable</strong> for production use.</p>
+
+      </body>
+    </html>

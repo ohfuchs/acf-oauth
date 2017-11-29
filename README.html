@@ -1,0 +1,183 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <h1 id="acf-oauth-field">ACF OAuth Field</h1>
+<p>An Advanced Custom Field Plugin for the OAuth Authentication Flow. It allows you to easily collect API Credentials for your users. You only have to care about your API, not about ACF.</p>
+<p><img src="assets/images/detail.gif" alt="Scheme"></p>
+<hr>
+<h3 id="description">Description</h3>
+<p>ACF OAuth adds a new field type to ACF. You can choose from a list of Services that support the OAuth Protocol. ACF OAuth will add a login button to your forms.</p>
+<p><img src="assets/images/how-does-it-work.gif" alt="Scheme"></p>
+<h3 id="compatibility">Compatibility</h3>
+<p>This ACF field type is compatible with:</p>
+<ul>
+<li>ACF 5</li>
+<li>OAuth 2.0 Webserver Flow</li>
+<li>OAuth 1.0a Webserver Flow</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>Copy the <code>acf-oauth</code> folder into your <code>wp-content/plugins</code> folder</li>
+<li>Activate the OAuth plugin via the plugins admin page</li>
+<li>Create a new field via ACF and select the OAuth type</li>
+<li>Please refer to the description for more info regarding the field type settings</li>
+<li>Make sure to configure every required Service by providing the required Credentials</li>
+<li>Make sure to read the <em>Recommended ways to improve Security</em> on this page</li>
+</ol>
+<h3 id="how-to-configure-a-service">How to configure a Service</h3>
+<ol>
+<li>Go to your Service and <strong>register</strong> for an <strong>APP</strong> and/or <strong>Developer Account</strong></li>
+<li>Get your APP or Developer Credentials. Usually <strong>Client ID</strong> and <strong>Client Secret</strong></li>
+<li>Provide the <strong>App Credentials</strong> by extending a Service (recommended) or via Filter like in the following example</li>
+</ol>
+<pre><code class="lang-php">
+add_filter( &#39;acf-oauth/service/instagram/appcredentials&#39;, function( $appcredentials ) {
+
+  return array(
+    &#39;client_id&#39;     =&gt; &#39;1234...4321&#39;,
+    &#39;client_secret&#39; =&gt; &#39;4321...1234&#39;
+  );
+
+});
+</code></pre>
+<hr>
+<h2 id="built-in-oauth-services">Built-In OAuth Services</h2>
+<p>Currently the following Services are supported on a minimum level. This means they request only the minimum privileges from the Service.</p>
+<ul>
+<li>Instagram <em><a href="services/instagram/readme.md">( Requirements )</a></em></li>
+<li>Facebook <em><a href="services/facebook/readme.md">( Requirements )</a></em></li>
+<li>Google <em><a href="services/google/readme.md">( Requirements )</a></em></li>
+<li>Twitter <em><a href="services/twitter/readme.md">( Requirements )</a></em></li>
+<li>Pinterest <em><a href="services/pinterest/readme.md">( Requirements ) </a></em></li>
+</ul>
+<hr>
+<h2 id="how-to-use-the-field-data">How to use the field data</h2>
+<p>This depends on the service you want to use. You can view a simple Example for the Instagram Service <a href="services/instagram/readme.md">here</a></p>
+<hr>
+<h2 id="how-to-create-a-new-service-plugin">How to create a new Service Plugin</h2>
+<p>To get started, you can copy the Service Template Plugin from <code>/service-template</code>. It contain all required Information for implementing a new Service.</p>
+<p>If you need to replace more of the default functionality, have a look at the Service Class in <code>service-class.php</code></p>
+<h4 id="minimal-service-class">Minimal Service Class</h4>
+<p>That&#39;s how a simple Service implementation could look like, nothing more.</p>
+<pre><code class="lang-php">final class acf_oauth_service_instagram extends acf_oauth_service {
+
+
+  function __construct() {
+
+    $this-&gt;name = &#39;instagram&#39;;
+
+    $this-&gt;label = __( &#39;Instagram&#39;, &#39;acf-oauth&#39; );
+
+    $this-&gt;request_url_base = &#39;https://api.instagram.com/oauth/authorize/&#39;;
+
+    $this-&gt;exchange_url_base = &#39;https://api.instagram.com/oauth/access_token&#39;;
+
+    // a random key
+    $this-&gt;cryptkey = &#39;B2&gt;.]k6Jk%trz-6LB+WaV0OhmfZ!+ErM#cVc/2%!G&amp;qE:`3r`SR9dKeFyf&lt;}-g1*&#39;;
+
+
+    parent::__constuct();
+
+  }
+
+  function vcard( $no_vcard, $credentials  ) {
+
+    if( $credentials == &#39;working&#39; ) {
+
+      ...
+
+      return &#39;&lt;img src=&quot;../profile-pic.jpg&quot;/&gt;&#39;;
+    }
+    return $no_vcard;
+  }
+
+}
+</code></pre>
+<hr>
+<h2 id="recommended-ways-to-improve-security">Recommended ways to improve Security</h2>
+<p>The created Credentials are basically stored encrypted in your Database. You can make it harder to decrypt Credentials by following these Tips.</p>
+<p>Lastly, I would like to mention that you can&#39;t hide your data from other Plugins on your Website. Every Plugin that can access server-side data is generally able to reproduce your Encryptionkeys.</p>
+<h4 id="1-define-acf_oauth_key">1. Define ACF_OAUTH_KEY</h4>
+<p>Add the following line to your <code>wp-config.php</code>. This will make your encrypted Credentials depend on your current Wordpress installation.
+After you add or modify this constant, your existing login data can no longer be decrypted. If not present ACF OAuth will use the AUTH_KEY constant for this.</p>
+<p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
+<pre><code class="lang-php">
+define( &#39;ACF_OAUTH_KEY&#39;, &#39;&amp;+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$&gt;iv0j4=i}sPD9y^Yf;iYw7HZ!L6&amp;4q&#39; );
+</code></pre>
+<h4 id="2-offer-your-app-credentials-directly">2. Offer your App Credentials directly</h4>
+<p>If you want to use a Built-In Service, you have to provide your App Credentials via filter. This makes your App Credentials public to any script that executes the same filter. A better approach is extending an existing Service and offering your App Credentials directly</p>
+<pre><code class="lang-php">
+final class my_service extends acf_oauth_service_instagram {
+
+  function __construct() {
+
+    ...
+
+    $this-&gt;appcredentials = array(
+      &#39;client_id&#39;     =&gt; &#39;dae8f0328c324a6282a2d75b8edb913c&#39;,
+      &#39;client_secret&#39; =&gt; &#39;35d035b536574b3991410641fd4cc9e3&#39;
+    );
+
+    ...
+
+    // do not remove this
+    parent::__construct( );
+  }
+}
+</code></pre>
+<h4 id="3-define-a-cryptkey-for-your-service">3. Define a Cryptkey for your Service</h4>
+<p>Every Service should provide a unique Cryptkey. This ensures that only this Service can decrypt the Credentials.</p>
+<p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
+<pre><code class="lang-php">
+final class my_service extends acf_oauth_service_instagram {
+
+  function __construct() {
+
+    $this-&gt;cryptkey = &#39;tzS0@rR}X=;?4oQ[uJ|s9~%juS!{nMr,2hn|iJR6[F_zPrl&gt;juD;ZG^6rQ|!-[,4&#39;;
+
+    ...
+</code></pre>
+<h4 id="4-add-the-final-keyword-to-your-service-class">4. Add the final keyword to your Service Class</h4>
+<p>Add the <code>final</code> keyword to ensure your Service could not be extended. Built-In Services do not use this keyword, so they are easily extendable.</p>
+<pre><code class="lang-php">
+final class my_service extends acf_oauth_service_instagram {
+
+  function __construct() {...
+</code></pre>
+<h4 id="5-disable-auto-decryption">5. Disable Auto decryption</h4>
+<p>By default your Credentials are automatically decrypted before they are sent to the template. Disable the auto decryption like this:</p>
+<pre><code class="lang-php">
+function __construct() {
+
+  ...
+
+  parent::__construct( );
+
+  remove_all_filters( &#39;acf-oauth/service/&#39;.$this-&gt;name.&#39;/format_value&#39; );
+
+}
+</code></pre>
+<p>Make sure to call <code>remove_all_filters</code> after you&#39;ve called the parent construct. Then declare the format_value method, to make the parent method unavailable to other instances of your Service class</p>
+<pre><code class="lang-php">
+function format_value( $value, $post_id, $field ) {
+
+  return $value;
+}
+</code></pre>
+<p>After that use a custom function to decrypt your data</p>
+<pre><code class="lang-php">function my_decrypt_func( $value ) {
+
+  $cryptkey = my_service::_cryptkey( &#39;your-class-cryptkey-here&#39;, &#39;credentials&#39; );
+
+
+  return my_service::_decrypt_array( $value, $cryptkey );
+}
+</code></pre>
+<pre><code class="lang-php">$credentials = my_decrypt_func( get_field(&#39;my-oauth-credentials&#39;) );
+</code></pre>
+
+      </body>
+    </html>

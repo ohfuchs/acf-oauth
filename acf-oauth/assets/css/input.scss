@@ -1,0 +1,110 @@
+
+.acf-oauth-verify {
+
+  max-width: 100%;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+
+  .fa {
+    margin-right: .2em;
+  }
+}
+
+
+
+.acf-oauth-vcard {
+
+  max-width:16rem;
+  position: relative;
+  background-color:#32373c;
+  color:#eee;
+  box-sizing: border-box;
+  padding: .8rem 3rem .8rem 5rem;
+  height:4rem;
+  overflow:hidden;
+  border-radius: 3px;
+
+  .avatar {
+
+    position: absolute;
+    top:0;
+    left:0;
+    width:4rem;
+    height:4rem;
+  }
+
+  .username,
+  .displayname {
+
+  	text-overflow:ellipsis;
+  	white-space:nowrap;
+  	overflow:hidden;
+  }
+
+  .username {
+
+    display: block;
+  }
+
+  .displayname {
+    color:rgba( white, .5 );
+    font-style: italic;
+    font-size: .7rem;
+  }
+
+
+  .acf-oauth-trash-account {
+    display: block;
+    position: absolute;
+    right:.4rem;
+    top:.4rem;
+    opacity:.5;
+    text-align:center;
+    font-size:1rem;
+    cursor: pointer;
+    transition: opacity 200ms ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+@keyframes oauth-rotating {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+.acf-field-oauth .acf-error-message {
+
+  &.-dismiss p {
+    margin-right:30px;
+  }
+
+  &.-loading {
+
+    background: #0073aa;
+
+    &::after {
+
+      border-top-color: #0073aa;
+
+    }
+
+    .acf-icon {
+      cursor:pointer;
+      background: lighten( #0073aa, 10% );
+      animation: oauth-rotating 2s linear infinite;
+    }
+  }
+}

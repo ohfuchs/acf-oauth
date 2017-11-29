@@ -1,0 +1,177 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Advanced Custom Fields: OAuth\n"
+"POT-Creation-Date: 2017-11-18 15:03+0100\n"
+"PO-Revision-Date: 2017-11-18 14:56+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: acf-oauth.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: acf-oauth.php:89 acf-oauth.php:154 acf-oauth.php:159 acf-oauth.php:295
+#: acf-oauth.php:347
+msgid "Bad request"
+msgstr ""
+
+#: acf-oauth.php:95 acf-oauth.php:301 acf-oauth.php:353
+msgid "Not authorized"
+msgstr ""
+
+#: acf-oauth.php:165
+msgid "Waiting for your consent..."
+msgstr ""
+
+#: acf-oauth.php:182
+msgid "Could not establish request"
+msgstr ""
+
+#: acf-oauth.php:187
+msgid "Unable to create request"
+msgstr ""
+
+#: acf-oauth.php:192
+msgid "Could not redirect to service"
+msgstr ""
+
+#: acf-oauth.php:307
+msgid "Missing Data"
+msgstr ""
+
+#: acf-oauth.php:317
+msgid "Could not find request"
+msgstr ""
+
+#: acf-oauth.php:359
+msgid "Missing data"
+msgstr ""
+
+#: acf-oauth.php:369
+msgid "Could not read Userdata"
+msgstr ""
+
+#: acf-oauth.php:402 acf-oauth.php:403 acf-oauth.php:412 acf-oauth.php:413
+msgid "Sorry, you are not authorized to fullfill this request."
+msgstr ""
+
+#: acf-oauth.php:422 acf-oauth.php:423 acf-oauth.php:436 acf-oauth.php:437
+msgid "Sorry, we could not find your request."
+msgstr ""
+
+#: acf-oauth.php:446 acf-oauth.php:447
+msgid "Sorry, this is not a pending request."
+msgstr ""
+
+#: acf-oauth.php:461
+msgid "Sorry, an unknown error happened :("
+msgstr ""
+
+#: acf-oauth.php:499 acf-oauth.php:500
+msgid "Thanks for logging in! You can close this window now :)"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:42 fields/acf-oauth-v5.php:49
+msgid "OAuth Authentication"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:58
+#, php-format
+msgid "Log in with %s"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:68
+msgid "Error! Please enter a higher value"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:132
+msgid "needs configuration"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:139
+msgid "OAuth Service"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:157
+msgid ""
+"One or more services require additional configuration. Usualy a service "
+"needs a Client/App Key to work. Please check the docs for further "
+"information."
+msgstr ""
+
+#: fields/acf-oauth-v5.php:163
+msgid "Button Label"
+msgstr ""
+
+#: fields/acf-oauth-v5.php:164
+msgid "Label for the Login Button"
+msgstr ""
+
+#: service-class.php:35
+msgid "We could not verify your request."
+msgstr ""
+
+#: service-class.php:360
+msgid ""
+"Oooops, you denied the request :( <br/><br/>Please close this window and try "
+"again."
+msgstr ""
+
+#: service-class.php:464 service-class.php:565
+#, php-format
+msgid "Thank you for logging in with %s! Please close this window now."
+msgstr ""
+
+#: services/facebook/facebook.php:29
+msgid "Facebook"
+msgstr ""
+
+#: services/google/google.php:28
+msgid "Google"
+msgstr ""
+
+#: services/instagram-secure/instagram.php:27
+msgid "Instagram with a little more Security"
+msgstr ""
+
+#: services/instagram/instagram.php:28
+msgid "Instagram"
+msgstr ""
+
+#: services/pinterest/pinterest.php:29
+msgid "Pinterest"
+msgstr ""
+
+#: services/twitter/twitter.php:28
+msgid "Twitter"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Advanced Custom Fields: OAuth"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://bitbucket.org/ohfuchs/oauth-for-acf"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds new Fieldtype that allows to connect to an OAuth Service"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Oh!Fuchs"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.ohfuchs.com"
+msgstr ""

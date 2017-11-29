@@ -1,0 +1,52 @@
+body {
+  line-height: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-color: #0073aa;
+  color: white; }
+  body.error {
+    background-color: #d54e21; }
+
+.status {
+  max-width: 300px;
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  font-size: 16px;
+  text-align: center; }
+  .status p {
+    margin: 1em 0; }
+
+.status-message {
+  font-weight: 700; }
+
+.status-close {
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.5); }
+
+.status-icon {
+  font-size: 4rem; }
+
+.debug #debug-log {
+  display: none;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 5rem;
+  text-align: left;
+  padding: 1rem; }
+  .debug #debug-log.show {
+    display: block; }
+
+.show-debug {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: .8rem;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: .5em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0; }
