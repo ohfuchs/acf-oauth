@@ -131,13 +131,13 @@ Lastly, I would like to mention that you can't hide your data from other Plugins
 Add the following line to your `wp-config.php`. This will make your encrypted Credentials depend on your current Wordpress installation.
 After you add or modify this constant, your existing login data can no longer be decrypted. If not present ACF OAuth will use the AUTH_KEY constant for this.
 
-__Warning:__ Make sure to replace the value by your own custom string. You can generate a random string [here](https://api.wordpress.org/secret-key/1.1/salt/).
-
 ```php
 
 define( 'ACF_OAUTH_KEY', '&+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$>iv0j4=i}sPD9y^Yf;iYw7HZ!L6&4q' );
 
 ```
+
+__Warning:__ Make sure to replace the value by your own custom string. You can generate a random string [here](https://api.wordpress.org/secret-key/1.1/salt/).
 
 #### 2. Offer your App Credentials directly
 
@@ -168,9 +168,6 @@ final class my_service extends acf_oauth_service_instagram {
 
 Every Service should provide a unique Cryptkey. This ensures that only this Service can decrypt the Credentials.
 
-__Warning:__ Make sure to replace the value by your own custom string. You can generate a random string [here](https://api.wordpress.org/secret-key/1.1/salt/).
-
-
 ```php
 final class my_service extends acf_oauth_service_instagram {
 
@@ -180,6 +177,8 @@ final class my_service extends acf_oauth_service_instagram {
 
     ...
 ```
+
+__Warning:__ Make sure to replace the value by your own custom string. You can generate a random string [here](https://api.wordpress.org/secret-key/1.1/salt/).
 
 
 #### 4. Add the final keyword to your Service Class

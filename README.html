@@ -103,10 +103,10 @@ add_filter( &#39;acf-oauth/service/instagram/appcredentials&#39;, function( $app
 <h4 id="1-define-acf_oauth_key">1. Define ACF_OAUTH_KEY</h4>
 <p>Add the following line to your <code>wp-config.php</code>. This will make your encrypted Credentials depend on your current Wordpress installation.
 After you add or modify this constant, your existing login data can no longer be decrypted. If not present ACF OAuth will use the AUTH_KEY constant for this.</p>
-<p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
 <pre><code class="lang-php">
 define( &#39;ACF_OAUTH_KEY&#39;, &#39;&amp;+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$&gt;iv0j4=i}sPD9y^Yf;iYw7HZ!L6&amp;4q&#39; );
 </code></pre>
+<p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
 <h4 id="2-offer-your-app-credentials-directly">2. Offer your App Credentials directly</h4>
 <p>If you want to use a Built-In Service, you have to provide your App Credentials via filter. This makes your App Credentials public to any script that executes the same filter. A better approach is extending an existing Service and offering your App Credentials directly</p>
 <pre><code class="lang-php">final class my_service extends acf_oauth_service_instagram {
@@ -129,7 +129,6 @@ define( &#39;ACF_OAUTH_KEY&#39;, &#39;&amp;+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$&gt;
 </code></pre>
 <h4 id="3-define-a-cryptkey-for-your-service">3. Define a Cryptkey for your Service</h4>
 <p>Every Service should provide a unique Cryptkey. This ensures that only this Service can decrypt the Credentials.</p>
-<p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
 <pre><code class="lang-php">final class my_service extends acf_oauth_service_instagram {
 
   function __construct() {
@@ -138,6 +137,7 @@ define( &#39;ACF_OAUTH_KEY&#39;, &#39;&amp;+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$&gt;
 
     ...
 </code></pre>
+<p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
 <h4 id="4-add-the-final-keyword-to-your-service-class">4. Add the final keyword to your Service Class</h4>
 <p>Add the <code>final</code> keyword to ensure your Service could not be extended. Built-In Services do not use this keyword, so they are easily extendable.</p>
 <pre><code class="lang-php">final class my_service extends acf_oauth_service_instagram {
