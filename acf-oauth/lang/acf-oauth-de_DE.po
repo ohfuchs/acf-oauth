@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Custom Fields: OAuth\n"
-"POT-Creation-Date: 2017-11-29 09:53+0100\n"
-"PO-Revision-Date: 2017-11-29 10:06+0100\n"
+"POT-Creation-Date: 2017-11-29 10:25+0100\n"
+"PO-Revision-Date: 2017-11-29 10:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -204,8 +204,8 @@ msgid "Advanced Custom Fields: OAuth"
 msgstr "Advanced Custom Fields: OAuth"
 
 #. Plugin URI of the plugin/theme
-msgid "https://bitbucket.org/ohfuchs/oauth-for-acf"
-msgstr ""
+msgid "https://github.com/ohfuchs/acf-oauth"
+msgstr "https://github.com/ohfuchs/acf-oauth"
 
 #. Description of the plugin/theme
 msgid "Adds new Fieldtype that allows to connect to an OAuth Service"
@@ -220,6 +220,9 @@ msgstr "Oh!Fuchs"
 #. Author URI of the plugin/theme
 msgid "https://www.ohfuchs.com"
 msgstr "https://www.ohfuchs.com"
+
+#~ msgid "https://bitbucket.org/ohfuchs/oauth-for-acf"
+#~ msgstr "https://bitbucket.org/ohfuchs/oauth-for-acf"
 
 #~ msgctxt "Service name e.g. Instagram"
 #~ msgid "Thanks for logging in to %s!"
