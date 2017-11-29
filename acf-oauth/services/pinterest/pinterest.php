@@ -32,7 +32,7 @@ if( !class_exists( 'acf_oauth_service_pinterest' ) ):
 
 
         // button label with icon (Fontawesome)
-        $this->button_label = __('<i class="fa fa-pinterest"></i> Login with Pinterest');
+        $this->button_label = '<i class="fa fa-pinterest"></i> '.sprintf( __('Login with %s', 'acf-oauth' ), $this->label );
 
       }
 

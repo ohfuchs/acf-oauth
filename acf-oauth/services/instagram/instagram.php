@@ -31,7 +31,7 @@ if( !class_exists( 'acf_oauth_service_instagram' ) ):
 
 
         // button label with icon (Fontawesome)
-        $this->button_label = __('<i class="fa fa-instagram"></i> Login with Instagram');
+        $this->button_label = '<i class="fa fa-instagram"></i> '.sprintf( __('Login with %s', 'acf-oauth' ), $this->label );
       }
 
       // base url where the user will be redirected to

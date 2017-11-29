@@ -65,7 +65,6 @@ class acf_field_oauth extends acf_field {
 		*/
 
 		$this->l10n = array(
-			'error'	=> __('Error! Please enter a higher value', 'acf-oauth'),
 		);
 
 
@@ -129,7 +128,7 @@ class acf_field_oauth extends acf_field {
 		array_walk( $service_list, function( &$label, $service ) use ( &$needs_configuration ){
 			if( ! acf_plugin_oauth::is_service( $service ) ) {
 
-				$label .= ' ('.__('needs configuration','acf-oauth').')';
+				$label .= ' ('.__('requires App Credentials','acf-oauth').')';
 				$needs_configuration++;
 			}
 		});

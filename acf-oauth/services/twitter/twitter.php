@@ -29,9 +29,9 @@ if( !class_exists( 'acf_oauth_service_twitter' ) ):
         // a display name
         $this->label = __( 'Twitter', 'acf-oauth' );
 
-        
+
         // button label with icon (Fontawesome)
-        $this->button_label = __('<i class="fa fa-twitter"></i> Login with Twitter');
+        $this->button_label = '<i class="fa fa-twitter"></i> '.sprintf( __('Login with %s', 'acf-oauth' ), $this->label );
 
 
       }

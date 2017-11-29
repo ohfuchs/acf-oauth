@@ -1,0 +1,226 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Custom Fields: OAuth\n"
+"POT-Creation-Date: 2017-11-29 09:53+0100\n"
+"PO-Revision-Date: 2017-11-29 10:06+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: acf-oauth.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: acf-oauth.php:530
+msgid "Sorry, an unknown error occurred!"
+msgstr "Entschuldige, ein unbekannter Fehler ist aufgetreten!"
+
+#: acf-oauth.php:535
+msgid "Bad request"
+msgstr "Fehlerhafte Anfrage"
+
+#: acf-oauth.php:540
+msgid "Could not establish request"
+msgstr "Antrage konnte nicht erstellt werden"
+
+#: acf-oauth.php:545
+msgid "Could not redirect to Service"
+msgstr "Konnte nicht zum Dienstanbieter weiterleiten"
+
+#: acf-oauth.php:546
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "Could not redirect to %s"
+msgstr "Konnte nicht zu %s weiterleiten"
+
+#: acf-oauth.php:551
+msgid "Not authorized"
+msgstr "Nicht autorisiert"
+
+#: acf-oauth.php:556
+msgid "Could not find request"
+msgstr "Anfrage wurde nicht gefunden"
+
+#: acf-oauth.php:561
+msgid "Could not read Userdata"
+msgstr "Benutzerdaten wurden nicht gefunden"
+
+#: acf-oauth.php:566
+msgid "Could not connect to Service"
+msgstr "Verbindung zum Dienstanbieter nicht möglich"
+
+#: acf-oauth.php:567
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "Could not connect to %s"
+msgstr "Verbindung mit %s nicht möglich"
+
+#: acf-oauth.php:572
+msgid "Sorry, this is not a pending request"
+msgstr "Entschuldige, dies ist keine offene Anfrage"
+
+#: acf-oauth.php:577
+msgid "The Service denied the request"
+msgstr "Der Dienstanbieter hat die Anfrage abgelehnt"
+
+#: acf-oauth.php:578
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "%s denied the request"
+msgstr "%s hat die Anfrage abgelehnt"
+
+#: acf-oauth.php:583
+msgid "Could not verify your consent"
+msgstr "Wir konnten deine Zustimmung nicht verfizieren"
+
+#: acf-oauth.php:588
+msgid "Could not parse server response"
+msgstr "Antwort vom Dienstanbieter konnte nicht verarbeitet werden"
+
+#: acf-oauth.php:593
+msgid "Could not read your Credentials"
+msgstr "Zugangsdaten konnten nicht gelesen werden"
+
+#: acf-oauth.php:598
+msgid "The Service took to long to respond"
+msgstr "Zeitüberschreitung der Anfrage"
+
+#: acf-oauth.php:599
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "%s took to long to respond"
+msgstr "Die Antwort von %s dauerte zu lang"
+
+#: acf-oauth.php:605
+msgid "Oooops, you denied the request :("
+msgstr "Oh, es sieht so aus als hättest du die Anfrage abgelehnt :("
+
+#: acf-oauth.php:611
+msgid "Could not verify your Credentials"
+msgstr "Zugangsdaten konnten nicht verifiziert werden"
+
+#: acf-oauth.php:618
+msgid "Waiting for your consent…"
+msgstr "Warten auf deine Zustimmung…"
+
+#: acf-oauth.php:623
+msgid "Checking Credentials…"
+msgstr "Zugangsdaten überprüfen…"
+
+#: acf-oauth.php:629
+msgid "Thanks for logging in!"
+msgstr "Danke für’s einloggen!"
+
+#: acf-oauth.php:630
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "Thanks for logging in with %s!"
+msgstr "Danke, du hast dich erfolgreich mit %s angemeldet!"
+
+#: fields/acf-oauth-v5.php:42 fields/acf-oauth-v5.php:49
+msgid "OAuth Authentication"
+msgstr "OAuth Authentifizierung"
+
+#: fields/acf-oauth-v5.php:131
+msgid "requires App Credentials"
+msgstr "Benötigt APP Zugangsdaten"
+
+#: fields/acf-oauth-v5.php:138
+msgid "OAuth Service"
+msgstr "OAuth Dienst"
+
+#: fields/acf-oauth-v5.php:156
+msgid ""
+"One or more services require additional configuration. Usualy a service "
+"needs a Client/App Key to work. Please check the docs for further "
+"information."
+msgstr ""
+"Eine oder mehrere Dienste benötigen zusätzliche Konfiguration. In der Regel "
+"werden Client Id und Client Secret benötigt. Bitte schau in die "
+"Dokumentation für mehr Hilfe."
+
+#: fields/acf-oauth-v5.php:162
+msgid "Button Label"
+msgstr "Button Label"
+
+#: fields/acf-oauth-v5.php:163
+msgid "Label for the Login Button"
+msgstr "Label für den Anmelde Button"
+
+#: fields/acf-oauth-v5.php:213
+msgid "Login"
+msgstr "Anmelden"
+
+#: service-class.php:41 services/facebook/facebook.php:35
+#: services/google/google.php:33 services/instagram/instagram.php:34
+#: services/pinterest/pinterest.php:35 services/twitter/twitter.php:34
+#, php-format
+msgid "Login with %s"
+msgstr "Anmelden mit %s"
+
+#: service-class.php:713
+msgid "Account"
+msgstr "Account"
+
+#: services/facebook/facebook.php:31
+msgid "Facebook"
+msgstr "Facebook"
+
+#: services/google/google.php:29
+msgid "Google"
+msgstr "Google"
+
+#: services/instagram/instagram.php:30
+msgid "Instagram"
+msgstr "Instagram"
+
+#: services/pinterest/pinterest.php:31
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: services/twitter/twitter.php:30
+msgid "Twitter"
+msgstr "Twitter"
+
+#: template-status.php:22
+msgid "You can close this window now"
+msgstr "Du kannst dieses Fenster jetzt schließen"
+
+#: template-status.php:41
+msgid "Show Debug Info"
+msgstr "Zeige Debug Informationen"
+
+#. Plugin Name of the plugin/theme
+msgid "Advanced Custom Fields: OAuth"
+msgstr "Advanced Custom Fields: OAuth"
+
+#. Plugin URI of the plugin/theme
+msgid "https://bitbucket.org/ohfuchs/oauth-for-acf"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds new Fieldtype that allows to connect to an OAuth Service"
+msgstr ""
+"Fügt einen neuen Feldtyp hinzu, der es erlaubt sich mit einem OAuth "
+"Dienstanbieter zu verbinden"
+
+#. Author of the plugin/theme
+msgid "Oh!Fuchs"
+msgstr "Oh!Fuchs"
+
+#. Author URI of the plugin/theme
+msgid "https://www.ohfuchs.com"
+msgstr "https://www.ohfuchs.com"
+
+#~ msgctxt "Service name e.g. Instagram"
+#~ msgid "Thanks for logging in to %s!"
+#~ msgstr "Danke, dass du dich mit %s eingeloggt hast!"

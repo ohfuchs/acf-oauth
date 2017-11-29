@@ -30,7 +30,7 @@ if( !class_exists( 'acf_oauth_service_google' ) ):
 
 
         // button label with icon (Fontawesome)
-        $this->button_label = __('<i class="fa fa-google"></i> Login with Google');
+        $this->button_label = '<i class="fa fa-google"></i> '.sprintf( __('Login with %s', 'acf-oauth' ), $this->label );
 
       }
 

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Advanced Custom Fields: OAuth\n"
-"POT-Creation-Date: 2017-11-18 15:03+0100\n"
-"PO-Revision-Date: 2017-11-18 14:56+0100\n"
+"POT-Creation-Date: 2017-11-29 09:32+0100\n"
+"PO-Revision-Date: 2017-11-29 09:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,74 +20,96 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: acf-oauth.php:89 acf-oauth.php:154 acf-oauth.php:159 acf-oauth.php:295
-#: acf-oauth.php:347
+#: acf-oauth.php:530
+msgid "Sorry, an unknown error occurred!"
+msgstr ""
+
+#: acf-oauth.php:535
 msgid "Bad request"
 msgstr ""
 
-#: acf-oauth.php:95 acf-oauth.php:301 acf-oauth.php:353
-msgid "Not authorized"
-msgstr ""
-
-#: acf-oauth.php:165
-msgid "Waiting for your consent..."
-msgstr ""
-
-#: acf-oauth.php:182
+#: acf-oauth.php:540
 msgid "Could not establish request"
 msgstr ""
 
-#: acf-oauth.php:187
-msgid "Unable to create request"
+#: acf-oauth.php:545
+msgid "Could not redirect to Service"
 msgstr ""
 
-#: acf-oauth.php:192
-msgid "Could not redirect to service"
+#: acf-oauth.php:546
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "Could not redirect to %s"
 msgstr ""
 
-#: acf-oauth.php:307
-msgid "Missing Data"
+#: acf-oauth.php:551
+msgid "Not authorized"
 msgstr ""
 
-#: acf-oauth.php:317
+#: acf-oauth.php:556
 msgid "Could not find request"
 msgstr ""
 
-#: acf-oauth.php:359
-msgid "Missing data"
-msgstr ""
-
-#: acf-oauth.php:369
+#: acf-oauth.php:561
 msgid "Could not read Userdata"
 msgstr ""
 
-#: acf-oauth.php:402 acf-oauth.php:403 acf-oauth.php:412 acf-oauth.php:413
-msgid "Sorry, you are not authorized to fullfill this request."
+#: acf-oauth.php:566
+msgid "Could not connect to Service"
 msgstr ""
 
-#: acf-oauth.php:422 acf-oauth.php:423 acf-oauth.php:436 acf-oauth.php:437
-msgid "Sorry, we could not find your request."
+#: acf-oauth.php:571
+msgid "Sorry, this is not a pending request"
 msgstr ""
 
-#: acf-oauth.php:446 acf-oauth.php:447
-msgid "Sorry, this is not a pending request."
+#: acf-oauth.php:576
+msgid "The Service denied the request"
 msgstr ""
 
-#: acf-oauth.php:461
-msgid "Sorry, an unknown error happened :("
+#: acf-oauth.php:581
+msgid "Could not verify your consent"
 msgstr ""
 
-#: acf-oauth.php:499 acf-oauth.php:500
-msgid "Thanks for logging in! You can close this window now :)"
+#: acf-oauth.php:586
+msgid "Could not parse server response"
+msgstr ""
+
+#: acf-oauth.php:591
+msgid "Could not read your Credentials"
+msgstr ""
+
+#: acf-oauth.php:596
+msgid "The Service took to long to respond"
+msgstr ""
+
+#: acf-oauth.php:602
+msgid "Oooops, you denied the request :("
+msgstr ""
+
+#: acf-oauth.php:608
+msgid "Could not verify your Credentials"
+msgstr ""
+
+#: acf-oauth.php:615
+msgid "Waiting for your consent…"
+msgstr ""
+
+#: acf-oauth.php:620
+msgid "Checking Credentials…"
+msgstr ""
+
+#: acf-oauth.php:626
+msgid "Thanks for logging in!"
+msgstr ""
+
+#: acf-oauth.php:627
+#, php-format
+msgctxt "Service name e.g. Instagram"
+msgid "Thanks for logging in to %s!"
 msgstr ""
 
 #: fields/acf-oauth-v5.php:42 fields/acf-oauth-v5.php:49
 msgid "OAuth Authentication"
-msgstr ""
-
-#: fields/acf-oauth-v5.php:58
-#, php-format
-msgid "Log in with %s"
 msgstr ""
 
 #: fields/acf-oauth-v5.php:68
@@ -117,43 +139,65 @@ msgstr ""
 msgid "Label for the Login Button"
 msgstr ""
 
-#: service-class.php:35
-msgid "We could not verify your request."
+#: fields/acf-oauth-v5.php:214
+msgid "Login"
 msgstr ""
 
-#: service-class.php:360
-msgid ""
-"Oooops, you denied the request :( <br/><br/>Please close this window and try "
-"again."
-msgstr ""
-
-#: service-class.php:464 service-class.php:565
+#: service-class.php:41
 #, php-format
-msgid "Thank you for logging in with %s! Please close this window now."
+msgid "Login with %s"
 msgstr ""
 
-#: services/facebook/facebook.php:29
+#: service-class.php:713
+msgid "Account"
+msgstr ""
+
+#: services/facebook/facebook.php:31
 msgid "Facebook"
 msgstr ""
 
-#: services/google/google.php:28
+#: services/facebook/facebook.php:35
+msgid "<i class=\"fa fa-facebook-square\"></i> Login with Facebook"
+msgstr ""
+
+#: services/google/google.php:29
 msgid "Google"
 msgstr ""
 
-#: services/instagram-secure/instagram.php:27
-msgid "Instagram with a little more Security"
+#: services/google/google.php:33
+msgid "<i class=\"fa fa-google\"></i> Login with Google"
 msgstr ""
 
-#: services/instagram/instagram.php:28
+#: services/instagram/instagram.php:30
 msgid "Instagram"
 msgstr ""
 
-#: services/pinterest/pinterest.php:29
+#: services/instagram/instagram.php:34
+msgid "<i class=\"fa fa-instagram\"></i> Login with Instagram"
+msgstr ""
+
+#: services/pinterest/pinterest.php:31
 msgid "Pinterest"
 msgstr ""
 
-#: services/twitter/twitter.php:28
+#: services/pinterest/pinterest.php:35
+msgid "<i class=\"fa fa-pinterest\"></i> Login with Pinterest"
+msgstr ""
+
+#: services/twitter/twitter.php:30
 msgid "Twitter"
+msgstr ""
+
+#: services/twitter/twitter.php:34
+msgid "<i class=\"fa fa-twitter\"></i> Login with Twitter"
+msgstr ""
+
+#: template-status.php:22
+msgid "You can close this window now"
+msgstr ""
+
+#: template-status.php:41
+msgid "Show Debug Info"
 msgstr ""
 
 #. Plugin Name of the plugin/theme

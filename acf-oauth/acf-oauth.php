@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Advanced Custom Fields: OAuth
-Plugin URI: https://bitbucket.org/ohfuchs/oauth-for-acf
+Plugin URI: https://github.com/ohfuchs/acf-oauth
 Description: Adds new Fieldtype that allows to connect to an OAuth Service
 Version: 1.0.0
 Author: Oh!Fuchs
@@ -564,6 +564,7 @@ class acf_plugin_oauth {
 			'connection-error' => array(
 				'type' 		 => 'error',
 				'message'  => __( 'Could not connect to Service', 'acf-oauth' ),
+				'message_service'  => _x( 'Could not connect to %s', 'Service name e.g. Instagram', 'acf-oauth' ),
 				'httpcode' => 500
 			),
 			'not-pending' => array(
@@ -574,6 +575,7 @@ class acf_plugin_oauth {
 			'denied-request' => array(
 				'type' 		 => 'error',
 				'message'  => __( 'The Service denied the request', 'acf-oauth' ),
+				'message_service'  => _x( '%s denied the request', 'Service name e.g. Instagram', 'acf-oauth' ),
 				'httpcode' => 500
 			),
 			'no-consent' => array(
@@ -594,6 +596,7 @@ class acf_plugin_oauth {
 			'timeout' => array(
 				'type' 		 => 'error',
 				'message'  => __( 'The Service took to long to respond', 'acf-oauth' ),
+				'message_service'  => _x( '%s took to long to respond', 'Service name e.g. Instagram', 'acf-oauth' ),
 				'httpcode' => 500
 			),
 
@@ -624,7 +627,7 @@ class acf_plugin_oauth {
 			'after-log-in' => array(
 				'type' 		 				 => 'success',
 				'message'  				 => __( 'Thanks for logging in!', 'acf-oauth' ),
-				'message_service'  => _x( 'Thanks for logging in to %s!', 'Service name e.g. Instagram', 'acf-oauth' ),
+				'message_service'  => _x( 'Thanks for logging in with %s!', 'Service name e.g. Instagram', 'acf-oauth' ),
 				'httpcode' 				 => 200
 			),
 
