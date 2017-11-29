@@ -145,7 +145,6 @@ If you want to use a Built-In Service, you have to provide your App Credentials 
 
 
 ```php
-
 final class my_service extends acf_oauth_service_instagram {
 
   function __construct() {
@@ -163,7 +162,6 @@ final class my_service extends acf_oauth_service_instagram {
     parent::__construct( );
   }
 }
-
 ```
 
 #### 3. Define a Cryptkey for your Service
@@ -174,7 +172,6 @@ __Warning:__ Make sure to replace the value by your own custom string. You can g
 
 
 ```php
-
 final class my_service extends acf_oauth_service_instagram {
 
   function __construct() {
@@ -182,7 +179,6 @@ final class my_service extends acf_oauth_service_instagram {
     $this->cryptkey = 'tzS0@rR}X=;?4oQ[uJ|s9~%juS!{nMr,2hn|iJR6[F_zPrl>juD;ZG^6rQ|!-[,4';
 
     ...
-
 ```
 
 
@@ -191,11 +187,11 @@ final class my_service extends acf_oauth_service_instagram {
 Add the `final` keyword to ensure your Service could not be extended. Built-In Services do not use this keyword, so they are easily extendable.
 
 ```php
-
 final class my_service extends acf_oauth_service_instagram {
 
-  function __construct() {...
+  function __construct() {
 
+    ...
 ```
 
 #### 5. Disable Auto decryption
@@ -203,7 +199,6 @@ final class my_service extends acf_oauth_service_instagram {
 By default your Credentials are automatically decrypted before they are sent to the template. Disable the auto decryption like this:
 
 ```php
-
 function __construct() {
 
   ...
@@ -213,18 +208,15 @@ function __construct() {
   remove_all_filters( 'acf-oauth/service/'.$this->name.'/format_value' );
 
 }
-
 ```
 
 Make sure to call `remove_all_filters` after you've called the parent construct. Then declare the format_value method, to make the parent method unavailable to other instances of your Service class
 
 ```php
-
 function format_value( $value, $post_id, $field ) {
 
   return $value;
 }
-
 ```
 
 After that use a custom function to decrypt your data
@@ -234,12 +226,10 @@ function my_decrypt_func( $value ) {
 
   $cryptkey = my_service::_cryptkey( 'your-class-cryptkey-here', 'credentials' );
 
-
   return my_service::_decrypt_array( $value, $cryptkey );
 }
 ```
 
 ```php
 $credentials = my_decrypt_func( get_field('my-oauth-credentials') );
-
 ```

@@ -8,6 +8,8 @@ This Service allows you to generate an Access Token for the Instagram API throug
 
 This Service requires  __Client Id__ and __Client Secret__ to work.
 
+You can register for an App here:
+https://www.instagram.com/developer/
 
 ### Example Usage
 

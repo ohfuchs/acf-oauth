@@ -47,18 +47,18 @@ add_filter( &#39;acf-oauth/service/instagram/appcredentials&#39;, function( $app
 <h2 id="built-in-oauth-services">Built-In OAuth Services</h2>
 <p>Currently the following Services are supported on a minimum level. This means they request only the minimum privileges from the Service.</p>
 <ul>
-<li>Instagram <em><a href="services/instagram/readme.md">( Requirements )</a></em></li>
-<li>Facebook <em><a href="services/facebook/readme.md">( Requirements )</a></em></li>
-<li>Google <em><a href="services/google/readme.md">( Requirements )</a></em></li>
-<li>Twitter <em><a href="services/twitter/readme.md">( Requirements )</a></em></li>
-<li>Pinterest <em><a href="services/pinterest/readme.md">( Requirements ) </a></em></li>
+<li>Instagram <em><a href="acf-oauth/services/instagram/readme.md">( Requirements )</a></em></li>
+<li>Facebook <em><a href="acf-oauth/services/facebook/readme.md">( Requirements )</a></em></li>
+<li>Google <em><a href="acf-oauth/services/google/readme.md">( Requirements )</a></em></li>
+<li>Twitter <em><a href="acf-oauth/services/twitter/readme.md">( Requirements )</a></em></li>
+<li>Pinterest <em><a href="acf-oauth/services/pinterest/readme.md">( Requirements ) </a></em></li>
 </ul>
 <hr>
 <h2 id="how-to-use-the-field-data">How to use the field data</h2>
-<p>This depends on the service you want to use. You can view a simple Example for the Instagram Service <a href="services/instagram/readme.md">here</a></p>
+<p>This depends on the service you want to use. You can view a simple Example for the Instagram Service <a href="acf-oauth/services/instagram/readme.md">here</a></p>
 <hr>
 <h2 id="how-to-create-a-new-service-plugin">How to create a new Service Plugin</h2>
-<p>To get started, you can copy the Service Template Plugin from <code>/service-template</code>. It contain all required Information for implementing a new Service.</p>
+<p>To get started, you can copy the Service Template Plugin from <code>/service-template</code>. It contains all required Information for implementing a new Service.</p>
 <p>If you need to replace more of the default functionality, have a look at the Service Class in <code>service-class.php</code></p>
 <h4 id="minimal-service-class">Minimal Service Class</h4>
 <p>That&#39;s how a simple Service implementation could look like, nothing more.</p>
@@ -109,16 +109,15 @@ define( &#39;ACF_OAUTH_KEY&#39;, &#39;&amp;+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$&gt;
 </code></pre>
 <h4 id="2-offer-your-app-credentials-directly">2. Offer your App Credentials directly</h4>
 <p>If you want to use a Built-In Service, you have to provide your App Credentials via filter. This makes your App Credentials public to any script that executes the same filter. A better approach is extending an existing Service and offering your App Credentials directly</p>
-<pre><code class="lang-php">
-final class my_service extends acf_oauth_service_instagram {
+<pre><code class="lang-php">final class my_service extends acf_oauth_service_instagram {
 
   function __construct() {
 
     ...
 
     $this-&gt;appcredentials = array(
-      &#39;client_id&#39;     =&gt; &#39;dae8f0328c324a6282a2d75b8edb913c&#39;,
-      &#39;client_secret&#39; =&gt; &#39;35d035b536574b3991410641fd4cc9e3&#39;
+      &#39;client_id&#39;     =&gt; &#39;1234&#39;,
+      &#39;client_secret&#39; =&gt; &#39;4321&#39;
     );
 
     ...
@@ -131,8 +130,7 @@ final class my_service extends acf_oauth_service_instagram {
 <h4 id="3-define-a-cryptkey-for-your-service">3. Define a Cryptkey for your Service</h4>
 <p>Every Service should provide a unique Cryptkey. This ensures that only this Service can decrypt the Credentials.</p>
 <p><strong>Warning:</strong> Make sure to replace the value by your own custom string. You can generate a random string <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a>.</p>
-<pre><code class="lang-php">
-final class my_service extends acf_oauth_service_instagram {
+<pre><code class="lang-php">final class my_service extends acf_oauth_service_instagram {
 
   function __construct() {
 
@@ -142,15 +140,15 @@ final class my_service extends acf_oauth_service_instagram {
 </code></pre>
 <h4 id="4-add-the-final-keyword-to-your-service-class">4. Add the final keyword to your Service Class</h4>
 <p>Add the <code>final</code> keyword to ensure your Service could not be extended. Built-In Services do not use this keyword, so they are easily extendable.</p>
-<pre><code class="lang-php">
-final class my_service extends acf_oauth_service_instagram {
+<pre><code class="lang-php">final class my_service extends acf_oauth_service_instagram {
 
-  function __construct() {...
+  function __construct() {
+
+    ...
 </code></pre>
 <h4 id="5-disable-auto-decryption">5. Disable Auto decryption</h4>
 <p>By default your Credentials are automatically decrypted before they are sent to the template. Disable the auto decryption like this:</p>
-<pre><code class="lang-php">
-function __construct() {
+<pre><code class="lang-php">function __construct() {
 
   ...
 
@@ -161,8 +159,7 @@ function __construct() {
 }
 </code></pre>
 <p>Make sure to call <code>remove_all_filters</code> after you&#39;ve called the parent construct. Then declare the format_value method, to make the parent method unavailable to other instances of your Service class</p>
-<pre><code class="lang-php">
-function format_value( $value, $post_id, $field ) {
+<pre><code class="lang-php">function format_value( $value, $post_id, $field ) {
 
   return $value;
 }
@@ -171,7 +168,6 @@ function format_value( $value, $post_id, $field ) {
 <pre><code class="lang-php">function my_decrypt_func( $value ) {
 
   $cryptkey = my_service::_cryptkey( &#39;your-class-cryptkey-here&#39;, &#39;credentials&#39; );
-
 
   return my_service::_decrypt_array( $value, $cryptkey );
 }
