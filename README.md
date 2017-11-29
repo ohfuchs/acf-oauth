@@ -78,7 +78,7 @@ To get started, you can copy the Service Template Plugin from `/service-template
 
 If you need to replace more of the default functionality, have a look at the Service Class in `service-class.php`
 
-#### Minimal Service Class
+### Minimal Service Class
 
 That's how a simple Service implementation could look like, nothing more.
 
@@ -126,7 +126,7 @@ The created Credentials are basically stored encrypted in your Database. You can
 
 Lastly, I would like to mention that you can't hide your data from other Plugins on your Website. Every Plugin that can access server-side data is generally able to reproduce your Encryptionkeys.
 
-#### 1. Define ACF_OAUTH_KEY
+### 1. Define ACF_OAUTH_KEY
 
 Add the following line to your `wp-config.php`. This will make your encrypted Credentials depend on your current Wordpress installation.
 After you add or modify this constant, your existing login data can no longer be decrypted. If not present ACF OAuth will use the AUTH_KEY constant for this.
@@ -139,7 +139,7 @@ define( 'ACF_OAUTH_KEY', '&+H0lUF|=_H+iQ4+En(3da?]n;1VQzJj1$>iv0j4=i}sPD9y^Yf;iY
 
 __Warning:__ Make sure to replace the value by your own custom string. You can generate a random string [here](https://api.wordpress.org/secret-key/1.1/salt/).
 
-#### 2. Offer your App Credentials directly
+### 2. Offer your App Credentials directly
 
 If you want to use a Built-In Service, you have to provide your App Credentials via filter. This makes your App Credentials public to any script that executes the same filter. A better approach is extending an existing Service and offering your App Credentials directly
 
@@ -164,7 +164,7 @@ final class my_service extends acf_oauth_service_instagram {
 }
 ```
 
-#### 3. Define a Cryptkey for your Service
+### 3. Define a Cryptkey for your Service
 
 Every Service should provide a unique Cryptkey. This ensures that only this Service can decrypt the Credentials.
 
@@ -181,7 +181,7 @@ final class my_service extends acf_oauth_service_instagram {
 __Warning:__ Make sure to replace the value by your own custom string. You can generate a random string [here](https://api.wordpress.org/secret-key/1.1/salt/).
 
 
-#### 4. Add the final keyword to your Service Class
+### 4. Add the final keyword to your Service Class
 
 Add the `final` keyword to ensure your Service could not be extended. Built-In Services do not use this keyword, so they are easily extendable.
 
@@ -193,7 +193,7 @@ final class my_service extends acf_oauth_service_instagram {
     ...
 ```
 
-#### 5. Disable Auto decryption
+### 5. Disable Auto decryption
 
 By default your Credentials are automatically decrypted before they are sent to the template. Disable the auto decryption like this:
 
