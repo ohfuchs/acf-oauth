@@ -58,17 +58,17 @@ add_filter( 'acf-oauth/service/instagram/appcredentials', function( $appcredenti
 
 Currently the following Services are supported on a minimum level. This means they request only the minimum privileges from the Service.
 
-* Instagram *[( Requirements )](services/instagram/readme.md)*
-* Facebook *[( Requirements )](services/facebook/readme.md)*
-* Google *[( Requirements )](services/google/readme.md)*
-* Twitter *[( Requirements )](services/twitter/readme.md)*
-* Pinterest *[( Requirements ) ](services/pinterest/readme.md)*
+* Instagram *[( Requirements )](acf-oauth/services/instagram/readme.md)*
+* Facebook *[( Requirements )](acf-oauth/services/facebook/readme.md)*
+* Google *[( Requirements )](acf-oauth/services/google/readme.md)*
+* Twitter *[( Requirements )](acf-oauth/services/twitter/readme.md)*
+* Pinterest *[( Requirements ) ](acf-oauth/services/pinterest/readme.md)*
 
 ---------------------
 
 ## How to use the field data
 
-This depends on the service you want to use. You can view a simple Example for the Instagram Service [here](services/instagram/readme.md)
+This depends on the service you want to use. You can view a simple Example for the Instagram Service [here](acf-oauth/services/instagram/readme.md)
 
 ---------------------
 
