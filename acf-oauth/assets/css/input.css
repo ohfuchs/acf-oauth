@@ -3,12 +3,9 @@
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
-}
-
-.acf-oauth-verify .fa {
-  margin-right: .2em;
-}
+  overflow: hidden; }
+  .acf-oauth-verify .fa {
+    margin-right: .2em; }
 
 .acf-oauth-vcard {
   max-width: 16rem;
@@ -20,90 +17,69 @@
   padding: .8rem 3rem .8rem 5rem;
   height: 4rem;
   overflow: hidden;
-  border-radius: 3px;
-}
-
-.acf-oauth-vcard .avatar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4rem;
-  height: 4rem;
-}
-
-.acf-oauth-vcard .username,
-.acf-oauth-vcard .displayname {
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.acf-oauth-vcard .username {
-  display: block;
-}
-
-.acf-oauth-vcard .displayname {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: italic;
-  font-size: .7rem;
-}
-
-.acf-oauth-vcard .acf-oauth-trash-account {
-  display: block;
-  position: absolute;
-  right: .4rem;
-  top: .4rem;
-  opacity: .5;
-  text-align: center;
-  font-size: 1rem;
-  cursor: pointer;
-  -webkit-transition: opacity 200ms ease;
-  -o-transition: opacity 200ms ease;
-  transition: opacity 200ms ease;
-}
-
-.acf-oauth-vcard .acf-oauth-trash-account:hover {
-  opacity: 1;
-}
+  border-radius: 3px; }
+  .acf-oauth-vcard .avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4rem;
+    height: 4rem; }
+  .acf-oauth-vcard .username,
+  .acf-oauth-vcard .displayname {
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+  .acf-oauth-vcard .username {
+    display: block; }
+  .acf-oauth-vcard .displayname {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    font-size: .7rem; }
+  .acf-oauth-vcard .acf-oauth-trash-account {
+    display: block;
+    position: absolute;
+    right: .4rem;
+    top: .4rem;
+    opacity: .5;
+    text-align: center;
+    font-size: 1rem;
+    cursor: pointer;
+    -webkit-transition: opacity 200ms ease;
+    -o-transition: opacity 200ms ease;
+    transition: opacity 200ms ease; }
+    .acf-oauth-vcard .acf-oauth-trash-account:hover {
+      opacity: 1; }
 
 @-webkit-keyframes oauth-rotating {
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
 
 @keyframes oauth-rotating {
   from {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+    transform: rotate(0deg); }
   to {
     -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+    transform: rotate(360deg); } }
+
+.acf-field-oauth .acf-error-message p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
 
 .acf-field-oauth .acf-error-message.-dismiss p {
-  margin-right: 30px;
-}
+  margin-right: 30px; }
 
 .acf-field-oauth .acf-error-message.-loading {
-  background: #0073aa;
-}
-
-.acf-field-oauth .acf-error-message.-loading::after {
-  border-top-color: #0073aa;
-}
-
-.acf-field-oauth .acf-error-message.-loading .acf-icon {
-  cursor: pointer;
-  background: #0096dd;
-  -webkit-animation: oauth-rotating 2s linear infinite;
-  animation: oauth-rotating 2s linear infinite;
-}
+  background: #0073aa; }
+  .acf-field-oauth .acf-error-message.-loading::after {
+    border-top-color: #0073aa; }
+  .acf-field-oauth .acf-error-message.-loading .acf-icon {
+    cursor: pointer;
+    background: #0096dd;
+    -webkit-animation: oauth-rotating 2s linear infinite;
+    animation: oauth-rotating 2s linear infinite; }

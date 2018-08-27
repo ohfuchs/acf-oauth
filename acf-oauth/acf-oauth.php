@@ -92,12 +92,12 @@ class acf_plugin_oauth {
 
 		// check
 		if( !check_ajax_referer( $this::$nonce_slug, '_oauthnonce', false ) )
-			acf_plugin_oauth::die( 'bad-request' );
+			acf_plugin_oauth::_die( 'bad-request' );
 
 
 		// check
-		if( !current_user_can( 'manage_options' ) )
-			acf_plugin_oauth::die( 'not-authorized' );
+		if( !current_user_can( 'edit_posts' ) )
+			acf_plugin_oauth::_die( 'not-authorized' );
 
 
 		$uuid = array( 'uuid' => $this->_uuid() );
@@ -154,7 +154,7 @@ class acf_plugin_oauth {
 
 
 		// check
-		if( !check_ajax_referer( $this::$nonce_slug, '_oauthnonce', false ) || !current_user_can( 'manage_options' ) )
+		if( !check_ajax_referer( $this::$nonce_slug, '_oauthnonce', false ) || !current_user_can( 'edit_posts' ) )
 			acf_plugin_oauth::display_status( 'bad-request', 'CSRF' );
 
 
@@ -218,17 +218,17 @@ class acf_plugin_oauth {
 
 		// check
 		if( !check_ajax_referer( $this::$nonce_slug, '_oauthnonce', false ) )
-			acf_plugin_oauth::die( 'bad-request', 'Code 1' );
+			acf_plugin_oauth::_die( 'bad-request', 'Code 1' );
 
 
 		// check
-		if( !current_user_can( 'manage_options' ) )
-			acf_plugin_oauth::die( 'not-authorized' );
+		if( !current_user_can( 'edit_posts' ) )
+			acf_plugin_oauth::_die( 'not-authorized' );
 
 
 		// check
 		if( !isset( $_REQUEST['request_id'] ) )
-			acf_plugin_oauth::die( 'bad-request', 'Code 2' );
+			acf_plugin_oauth::_die( 'bad-request', 'Code 2' );
 
 
 		// get current status
@@ -237,7 +237,7 @@ class acf_plugin_oauth {
 
 		// throw error if status is not available anymore
 		if( false === $status )
-			acf_plugin_oauth::die( 'missing-request' );
+			acf_plugin_oauth::_die( 'missing-request' );
 
 		// success
 		$this->json_response( $status );
@@ -266,17 +266,17 @@ class acf_plugin_oauth {
 
 		// check
 		if( !check_ajax_referer( $this::$nonce_slug, '_oauthnonce', false ) )
-			acf_plugin_oauth::die( 'bad-request', 'Code 1' );
+			acf_plugin_oauth::_die( 'bad-request', 'Code 1' );
 
 
 		// check
-		if( !current_user_can( 'manage_options' ) )
-			acf_plugin_oauth::die( 'not-authorized' );
+		if( !current_user_can( 'edit_posts' ) )
+			acf_plugin_oauth::_die( 'not-authorized' );
 
 
 		// check
 		if( !isset( $_REQUEST['service'] ) or !isset( $_REQUEST['credentials'] ) )
-			acf_plugin_oauth::die( 'bad-request', 'Code 2' );
+			acf_plugin_oauth::_die( 'bad-request', 'Code 2' );
 
 
 		// let service create vcard html in case of success
@@ -285,7 +285,7 @@ class acf_plugin_oauth {
 
 		// throw an error if the credentials could not be used to request user data
 		if( false === $vcard )
-			acf_plugin_oauth::die( 'no-userdata' );
+			acf_plugin_oauth::_die( 'no-userdata' );
 
 		// success
 		http_response_code( 200 );
@@ -321,7 +321,7 @@ class acf_plugin_oauth {
 
 
 		// check
-		if( !current_user_can( 'manage_options' ) )
+		if( !current_user_can( 'edit_posts' ) )
 			acf_plugin_oauth::display_status( 'not-authorized', 'Capability' );
 
 
@@ -355,7 +355,7 @@ class acf_plugin_oauth {
 		// if the status is still pending, make it an error
 		if( 'pending' === $status['status'] ) {
 
-			$status['status'] = 'failed';
+			$status['status'] = 'error';
 			$status['status_code'] = 'no-consent';
 		}
 
@@ -371,7 +371,7 @@ class acf_plugin_oauth {
 
 
 		// display final status
-		acf_plugin_oauth::display_status( 'after-log-in' );
+		acf_plugin_oauth::display_status( $status['status_code'] );
 
 
  	}
@@ -424,7 +424,7 @@ class acf_plugin_oauth {
 	/*
 	* echo error message by code
 	*/
-	static function die( $code, $debug = '' ) {
+	static function _die( $code, $debug = '' ) {
 
 
 		$status = acf_plugin_oauth::get_status( $code, $_REQUEST['service'] );
@@ -701,7 +701,7 @@ class acf_plugin_oauth {
 
 
 		// include default template
-		include( $this->settings['path'] . 'template-status.php' );
+		include( plugin_dir_path( __FILE__ ) . 'template-status.php' );
 
 
 		die();

@@ -87,6 +87,11 @@
 
 .acf-field-oauth .acf-error-message {
 
+  p {
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+  }
+
   &.-dismiss p {
     margin-right:30px;
   }

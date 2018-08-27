@@ -432,7 +432,6 @@ if( ! defined( 'ABSPATH' ) ) exit;
       if( ! isset( $_GET['error'] ) && !isset( $_GET['error_reason'] ) )
         return $status;
 
-
       return $this->_failed( $status, 'denied' );
 
     }
@@ -476,7 +475,7 @@ if( ! defined( 'ABSPATH' ) ) exit;
       // bail if status was already modified
       if( 'pending' !== $status['status'] )
         return $status;
-
+        
 
       if( !isset( $_GET['code'] ) )
         return $this->_failed( $status, 'bad-request' );
@@ -514,7 +513,6 @@ if( ! defined( 'ABSPATH' ) ) exit;
       // check if remote request was not successful
       if( $response instanceof WP_Error )
         return $this->_failed( $status, 'connection-error' );
-
 
       if( $response['response']['code'] != '200' )
         return $this->_failed( $status, 'denied-request'  );
